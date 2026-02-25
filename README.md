@@ -340,7 +340,6 @@ Authorization: Bearer <token>
 ```env
 # Servidor
 PORT=4000
-NODE_ENV=development
 
 # Banco de Dados
 DATABASE_URL="postgresql://usuario:senha@localhost:5432/zeno_db"

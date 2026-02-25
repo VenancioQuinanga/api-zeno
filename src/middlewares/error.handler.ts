@@ -10,8 +10,7 @@ export const errorHandler = (
   if (err instanceof AppError) {
     return res.status(err.statusCode).json({
       status: 'error',
-      message: err.message,
-      ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+      message: err.message
     })
   }
 
@@ -19,7 +18,6 @@ export const errorHandler = (
 
   return res.status(500).json({
     status: 'error',
-    message: 'Erro interno do servidor',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    message: 'Erro interno do servidor'
   })
 }
