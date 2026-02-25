@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma 
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  password       String 
+  role           UserRole  @default(USER)
+  isActive       Boolean   @default(true) @map("is_active")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+  VIEWER
+
+  @@map("user_roles")
+}
+
+model Candidate {
+  id              String   @id @default(cuid())
+  name            String
+  email           String   @unique
+  phone           String?
+  birthDate       String? @map("birth_date")
+  position        String
+  applicationDate DateTime @map("application_date")
+  status          Status   @default(pending)
+  experience      Int?     @default(0)
+  skills          String[]
+  notes           String?
+  linkedin        String?
+  portfolio       String?
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("candidates")
+}
+
+enum Status {
+  pending
+  reviewed
+  approved
+  rejected
+
+  @@map("status")
+}
