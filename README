@@ -105,15 +105,15 @@ enum Status {
 
 ----
 
-##  Endpoints da API
+####  Endpoints da API
 
-# Base: /api/v1
+### Base: /api/v1
 
-# Autenticação
-# POST /api/v1/auth/register
+### Autenticação
+### POST /api/v1/auth/register
 Cria um novo user.
 
-# Request:
+### Request:
 
 ```json
 {
@@ -123,7 +123,7 @@ Cria um novo user.
 }
 ```
 
-# Response (201):
+### Response (201):
 ```json
 {
   "user": {
@@ -138,10 +138,10 @@ Cria um novo user.
 }
 ```
 
-# POST /api/v1/auth/login
-# Autentica um usuário.
+### POST /api/v1/auth/login
+### Autentica um usuário.
 
-# Request:
+### Request:
 
 ```json
 {
@@ -150,7 +150,7 @@ Cria um novo user.
 }
 ```
 
-# Response (200):
+### Response (200):
 
 ```json
 {
@@ -166,15 +166,15 @@ Cria um novo user.
 }
 ```
 
-# GET /api/v1/auth/profile
-# Retorna os dados do usuário autenticado.
+### GET /api/v1/auth/profile
+### Retorna os dados do usuário autenticado.
 
-# Headers:
+### Headers:
 ```txt
 Authorization: Bearer <token>
 ```
 
-# Response (200):
+### Response (200):
 ```json
 {
   "user": {
@@ -188,26 +188,26 @@ Authorization: Bearer <token>
 }
 ```
 
-# Candidatos (Todas requerem token)
-# GET /api/v1/candidates
+### Candidatos (Todas requerem token)
+### GET /api/v1/candidates
 Lista todos os candidatos com filtros opcionais.
 
-# Headers:
+### Headers:
 ```txt
 Authorization: Bearer <token>
 ```
 
-# Query Params:
+### Query Params:
 
 status (opcional): pending | reviewed | approved | rejected
 
 search (opcional): busca por nome, email ou cargo
 
-# GET /api/v1/candidates
-# GET /api/v1/candidates?status=pending
-# GET /api/v1/candidates?search=joão
+### GET /api/v1/candidates
+### GET /api/v1/candidates?status=pending
+### GET /api/v1/candidates?search=joão
 
-# Response (200):
+### Response (200):
 ```json
 [
   {
@@ -232,15 +232,15 @@ search (opcional): busca por nome, email ou cargo
 ```
 
 
-# GET /api/v1/candidates/:id
-# Busca um candidato específico.
+### GET /api/v1/candidates/:id
+### Busca um candidato específico.
 
-# Headers:
+### Headers:
 ```txt
 Authorization: Bearer <token>
 ```
 
-# Response (200):
+### Response (200):
 ```json
 {
   "id": "cm7x1w3a20001vs9i9j9x9x9x",
@@ -262,16 +262,16 @@ Authorization: Bearer <token>
 }
 ```
 
-# POST /api/v1/candidates
-# Cria um novo candidato.
+### POST /api/v1/candidates
+### Cria um novo candidato.
 
-# Headers:
+### Headers:
 ```txt
 Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
-# Request:
+### Request:
 ```json
 {
   "name": "Maria Santos",
@@ -289,18 +289,18 @@ Content-Type: application/json
 }
 ```
 
-# Response (201): (mesmo formato do GET)
+### Response (201): (mesmo formato do GET)
 
-# PUT /api/v1/candidates/:id
+### PATCH /api/v1/candidates/:id
 Atualiza um candidato existente.
 
-# Headers:
+### Headers:
 ```txt
 Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
-# Request:
+### Request:
 ```json
 {
   "status": "approved",
@@ -308,33 +308,33 @@ Content-Type: application/json
 }
 ```
 
-# Response (200): (dados atualizados)
+### Response (200): (dados atualizados)
 
-# DELETE /api/v1/candidates/:id
-# Remove um candidato.
+### DELETE /api/v1/candidates/:id
+### Remove um candidato.
 
-# Headers:
+### Headers:
 ```txt
 Authorization: Bearer <token>
 ```
 
-# Response: 204 No Content
+### Response: 204 No Content
 
 
 ## Variáveis de Ambiente
 ```env
-# Servidor
+### Servidor
 PORT=4000
 NODE_ENV=development
 
-# Banco de Dados
+### Banco de Dados
 DATABASE_URL="postgresql://usuario:senha@localhost:5432/zeno_db"
 
-# JWT
+### JWT
 JWT_SECRET="seu-secret"
 JWT_EXPIRES_IN="7d"
 
-# Frontend (CORS)
+### Frontend (CORS)
 FRONTEND_URL="http://localhost:3000"
 ```
 
