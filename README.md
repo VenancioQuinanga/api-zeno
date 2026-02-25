@@ -360,3 +360,6 @@ JWT com expiração de 2 dias, escolhi esse tempo curto por questões de seguran
 Adotei a estrutura do Nestjs apara construção de algumas coisas na api, porque atualmente trabalho 
 também com  NestJs e estou abituado com essa estrutura e gosto bastante de alguns aspectos e vantagens desse framework.
 Por issso da escolha desse padrão kkk
+
+## API URL
+Base endpoint: https://api-zeno-hub.onrender.com/api/v1
