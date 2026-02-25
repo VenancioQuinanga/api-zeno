@@ -105,7 +105,7 @@ enum Status {
 
 ----
 
-####  Endpoints da API
+##  Endpoints da API
 
 ### Base: /api/v1
 
@@ -124,6 +124,7 @@ Cria um novo user.
 ```
 
 ### Response (201):
+
 ```json
 {
   "user": {
@@ -170,11 +171,13 @@ Cria um novo user.
 ### Retorna os dados do usuário autenticado.
 
 ### Headers:
+
 ```txt
 Authorization: Bearer <token>
 ```
 
 ### Response (200):
+
 ```json
 {
   "user": {
@@ -193,6 +196,7 @@ Authorization: Bearer <token>
 Lista todos os candidatos com filtros opcionais.
 
 ### Headers:
+
 ```txt
 Authorization: Bearer <token>
 ```
@@ -208,6 +212,7 @@ search (opcional): busca por nome, email ou cargo
 ### GET /api/v1/candidates?search=joão
 
 ### Response (200):
+
 ```json
 [
   {
@@ -236,11 +241,13 @@ search (opcional): busca por nome, email ou cargo
 ### Busca um candidato específico.
 
 ### Headers:
+
 ```txt
 Authorization: Bearer <token>
 ```
 
 ### Response (200):
+
 ```json
 {
   "id": "cm7x1w3a20001vs9i9j9x9x9x",
@@ -266,12 +273,14 @@ Authorization: Bearer <token>
 ### Cria um novo candidato.
 
 ### Headers:
+
 ```txt
 Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
 ### Request:
+
 ```json
 {
   "name": "Maria Santos",
@@ -295,12 +304,14 @@ Content-Type: application/json
 Atualiza um candidato existente.
 
 ### Headers:
+
 ```txt
 Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
 ### Request:
+
 ```json
 {
   "status": "approved",
@@ -314,6 +325,7 @@ Content-Type: application/json
 ### Remove um candidato.
 
 ### Headers:
+
 ```txt
 Authorization: Bearer <token>
 ```
@@ -322,6 +334,7 @@ Authorization: Bearer <token>
 
 
 ## Variáveis de Ambiente
+
 ```env
 ### Servidor
 PORT=4000
