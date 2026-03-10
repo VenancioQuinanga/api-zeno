@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "prisma generate && tsc && tsc-alias",
-    "start": "node -r tsconfig-paths/register dist/server.js",
+    "start": "node -r tsconfig-paths/register dist/saerver.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio"
